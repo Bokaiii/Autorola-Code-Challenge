@@ -1,0 +1,21 @@
+<div style="display: flexbox; flex-direction: column;">
+    <app-header></app-header>
+
+    <div class="grid-container">
+        <div class="actions">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-filter"></i>
+            <button class="actionButton">
+                New
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </div>
+
+        <hr>
+        <div class="grid">
+            <app-card *ngFor="let car of carList"
+                [car]="car"
+            ></app-card>
+        </div>
+    </div>
+</div>

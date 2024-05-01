@@ -16,17 +16,17 @@ public class CarWebService {
         carRepository = new CarRepository();
     }
 
-    @RequestMapping("/get")
+    @RequestMapping("")
     public List<CarDTO> get() {
         return carRepository.get();
     }
 
-    @RequestMapping("/get/{vin}")
+    @RequestMapping("/{vin}")
     public CarDTO get(@PathVariable String vin) {
         return carRepository.get(vin);
     }
 
-    @PostMapping("/new")
+    @PostMapping
     public void create(@RequestBody CarDTO car) {
         carRepository.create(car);
     }

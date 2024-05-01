@@ -8,7 +8,10 @@ import java.util.List;
 
 public class CarRepository {
 
-    private HashMap<String, CarDTO> carDB = new HashMap<>();
+    private HashMap<String, CarDTO> carDB = new HashMap<>() {{
+        put("1", new CarDTO("1", "Audi", "Q5", 200000));
+        put("2", new CarDTO("2", "Audi", "A4", 200600));
+    }};
 
     public List<CarDTO> get() {
         return new ArrayList<CarDTO>(carDB.values());
