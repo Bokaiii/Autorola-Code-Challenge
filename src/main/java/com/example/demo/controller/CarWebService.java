@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/cars")
 public class CarWebService {
@@ -26,9 +27,9 @@ public class CarWebService {
         return carRepository.get(vin);
     }
 
-    @PostMapping
-    public void create(@RequestBody CarDTO car) {
-        carRepository.create(car);
+    @PostMapping("/new")
+    public CarDTO create(@RequestBody CarDTO car) {
+        return carRepository.create(car);
     }
 
     @DeleteMapping("/{vin}")
@@ -36,7 +37,7 @@ public class CarWebService {
         carRepository.delete(vin);
     }
 
-    @PutMapping
+    @PutMapping("")
     public void edit(@RequestBody CarDTO car) {
         carRepository.edit(car);
     }

@@ -21,8 +21,9 @@ public class CarRepository {
         return carDB.get(vin);
     }
 
-    public void create(CarDTO car) {
+    public CarDTO create(CarDTO car) {
         carDB.put(car.getVin(), car);
+        return carDB.get(car.getVin());
     }
 
     public void delete(String vin) {

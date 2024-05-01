@@ -21,8 +21,8 @@ export class CarService {
         return this.httpClient.get<CarDTO>(`http://localhost:9090/cars/${vin}`);
     }
 
-    public createCar(car: CarDTO): Observable<void> {
-        return this.httpClient.post<void>(`http://localhost:9090/cars`, car);
+    public createCar(car: CarDTO): Observable<CarDTO> {
+        return this.httpClient.post<CarDTO>(`http://localhost:9090/cars/new`, car);
     }
 
     public deleteCar(vin: string): Observable<CarDTO> {

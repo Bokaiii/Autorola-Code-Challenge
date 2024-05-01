@@ -4,6 +4,8 @@ import { CardComponent } from '../card/card.component';
 import { CarService } from '../services/CarService';
 import { CarDTO } from '../../typings';
 import { CommonModule } from '@angular/common';
+import { NewCarModalComponent } from '../new-car-modal/new-car-modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-car-overview',
@@ -17,7 +19,8 @@ export class CarOverviewComponent implements OnInit {
   public carList?: CarDTO[];
 
   constructor(
-    private carService: CarService
+    private carService: CarService,
+    private modalService: NgbModal
   ){}
 
   ngOnInit(): void {
@@ -26,4 +29,15 @@ export class CarOverviewComponent implements OnInit {
     });
   }
   
+  public openModal(): void {
+    this.modalService.open(NewCarModalComponent).result.then(
+      (result: CarDTO) => {
+        this.carService.createCar(result).subscribe(carDto => {
+          this.carList?.push(carDto);
+        });
+      },
+      (reason) => {
+        console.log(reason);
+      });
+  }
 }
