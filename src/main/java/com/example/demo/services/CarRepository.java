@@ -30,7 +30,8 @@ public class CarRepository {
         carDB.remove(vin);
     }
 
-    public void edit(CarDTO car) {
+    public CarDTO edit(CarDTO car) {
         carDB.put(car.getVin(), car);
+        return carDB.get(car.getVin());
     }
 }

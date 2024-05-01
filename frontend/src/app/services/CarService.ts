@@ -29,7 +29,7 @@ export class CarService {
         return this.httpClient.delete<CarDTO>(`http://localhost:9090/cars/${vin}`);
     }
 
-    public updateCar(car: CarDTO): Observable<void> {
-        return this.httpClient.put<void>(`http://localhost:9090/cars`, car);
+    public updateCar(car: CarDTO): Observable<CarDTO> {
+        return this.httpClient.put<CarDTO>(`http://localhost:9090/cars`, car);
     }
 }

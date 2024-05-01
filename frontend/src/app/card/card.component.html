@@ -1,5 +1,7 @@
-<div class="card">
-    <div class="image"></div>
+<div class="card" (click)="edit()">
+    <div class="image">
+        <i class="fa-solid fa-xmark deleteButton" (click)="delete($event)"></i>
+    </div>
     <h6 class="makeAndModel">{{car?.make}} {{car?.model}}</h6>
     <h6 class="milage">{{car?.milage}} km</h6>
 </div>

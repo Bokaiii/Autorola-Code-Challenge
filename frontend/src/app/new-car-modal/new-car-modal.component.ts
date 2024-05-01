@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { CarDTO } from "../../typings";
@@ -13,6 +13,7 @@ import { timestamp } from 'rxjs';
 })
 export class NewCarModalComponent implements OnInit {
   public form!: FormGroup;
+  @Input() public car?: CarDTO;
 
   constructor(
     private activeModal: NgbActiveModal,
@@ -21,15 +22,15 @@ export class NewCarModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      make: this.fb.control("", {validators: [Validators.required]}),
-      model: this.fb.control("", {validators: [Validators.required]}),
-      milage: this.fb.control("", {validators: [Validators.required]}),
-      vin: this.fb.control("", {validators: [Validators.required]})
+      make: this.fb.control(this.car?.make ? this.car?.make : "", {validators: [Validators.required]}),
+      model: this.fb.control(this.car?.model ? this.car?.model : "", {validators: [Validators.required]}),
+      milage: this.fb.control(this.car?.milage ? this.car?.milage : "", {validators: [Validators.required]}),
+      vin: this.fb.control(this.car?.vin ? this.car?.vin : "", {validators: [Validators.required]})
     });
   }
 
   public submit(): void {
-    const car: CarDTO = {
+    const carDto: CarDTO = {
       vin: this.vin.value,
       make: this.make.value,
       model: this.model.value,
@@ -37,7 +38,7 @@ export class NewCarModalComponent implements OnInit {
       created: Date.now()
     }
 
-    this.activeModal.close(car);
+    this.activeModal.close(carDto);
   }
 
   public close(): void {

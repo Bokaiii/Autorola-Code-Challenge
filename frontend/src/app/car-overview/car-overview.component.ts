@@ -29,7 +29,7 @@ export class CarOverviewComponent implements OnInit {
     });
   }
   
-  public openModal(): void {
+  public newCar(): void {
     this.modalService.open(NewCarModalComponent).result.then(
       (result: CarDTO) => {
         this.carService.createCar(result).subscribe(carDto => {
@@ -39,5 +39,26 @@ export class CarOverviewComponent implements OnInit {
       (reason) => {
         console.log(reason);
       });
+  }
+
+  public editCar(carDto: CarDTO): void {
+    const modal = this.modalService.open(NewCarModalComponent);
+        
+    modal.componentInstance.car = carDto;
+    modal.result.then(
+      (result) => {
+        this.carService.updateCar(result).subscribe((carDto) => {
+          location.reload();
+        });
+      },
+      (reason) => {
+        console.log("Cancelled");
+      }
+    )
+  }
+
+  public deleteCar(vin: string): void {
+    this.carService.deleteCar(vin).subscribe();
+    location.reload();
   }
 }

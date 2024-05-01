@@ -38,7 +38,7 @@ public class CarWebService {
     }
 
     @PutMapping("")
-    public void edit(@RequestBody CarDTO car) {
-        carRepository.edit(car);
+    public CarDTO edit(@RequestBody CarDTO car) {
+        return carRepository.edit(car);
     }
 }
