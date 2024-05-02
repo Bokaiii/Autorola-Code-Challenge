@@ -33,6 +33,18 @@ curl --header "Content-type: application/json" --request POST -d '{"vin":"3","ma
 
 Running the get command will show that the new car has been added to the database.
 
+The PUT, DELETE and last GET method can be tested by using curl and the following commands:
+```
+Put:
+curl --header "Content-type: application/json" --request POST -d '{"vin":"3","make":"BMW","model":"M3","milage":200000,"created":"2024-05-01T18:56:40.999322Z"}' "http://localhost:9090/cars/new"
+
+Delete:
+curl -X DELETE "http://localhost:9090/cars/1"
+
+GET single using VIN:
+curl -X GET "http://localhost:9090/cars/2"
+```
+
 Alternatively, run the frontend by running the following command from the frontend folder.
 ```
 ng serve
