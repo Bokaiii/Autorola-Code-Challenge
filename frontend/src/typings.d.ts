@@ -5,5 +5,5 @@ export interface CarDTO {
     make: string;
     model: string;
     milage: number;
-    created: Timestamp;
+    created: Date;
 }

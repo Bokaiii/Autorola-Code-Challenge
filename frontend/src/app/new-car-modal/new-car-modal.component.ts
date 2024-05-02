@@ -35,7 +35,7 @@ export class NewCarModalComponent implements OnInit {
       make: this.make.value,
       model: this.model.value,
       milage: this.milage.value,
-      created: Date.now()
+      created: new Date()
     }
 
     this.activeModal.close(carDto);
