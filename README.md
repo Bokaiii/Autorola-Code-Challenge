@@ -28,7 +28,7 @@ curl "http://localhost:9090/cars"
 To get all cars in the database
 
 ```
-curl --header "Content-type: application/json" --request POST -d '{"vin":"3","make":"BMW","model":"M3","milage":200000,"created":"2024-05-01T18:56:40.999322Z"}' "http://localhost:9090/cars/new"
+curl --header "Content-type: application/json" --request POST -d '{"vin":"3","make":"BMW","model":"M3","mileage":200000,"created":"2024-05-01T18:56:40.999322Z"}' "http://localhost:9090/cars/new"
 ```
 
 Running the get command will show that the new car has been added to the database.
@@ -36,7 +36,7 @@ Running the get command will show that the new car has been added to the databas
 The PUT, DELETE and last GET method can be tested by using curl and the following commands:
 ```
 Put:
-curl --header "Content-type: application/json" --request POST -d '{"vin":"3","make":"BMW","model":"M3","milage":200000,"created":"2024-05-01T18:56:40.999322Z"}' "http://localhost:9090/cars/new"
+curl --header "Content-type: application/json" --request POST -d '{"vin":"3","make":"BMW","model":"M3","mileage":200000,"created":"2024-05-01T18:56:40.999322Z"}' "http://localhost:9090/cars/new"
 
 Delete:
 curl -X DELETE "http://localhost:9090/cars/1"
