@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import com.example.demo.model.CarDTO;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,8 +10,8 @@ import java.util.List;
 public class CarRepository {
 
     private HashMap<String, CarDTO> carDB = new HashMap<>() {{
-        put("1", new CarDTO("1", "Audi", "Q5", 200000));
-        put("2", new CarDTO("2", "Audi", "A4", 200600));
+        put("1", new CarDTO("1", "Audi", "Q5", 200000, Instant.now()));
+        put("2", new CarDTO("2", "Audi", "A4", 200600, Instant.now()));
     }};
 
     public List<CarDTO> get() {

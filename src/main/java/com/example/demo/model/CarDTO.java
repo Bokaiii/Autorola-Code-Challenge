@@ -7,15 +7,15 @@ public class CarDTO {
     private String vin;
     private String make;
     private String model;
-    private int milage;
+    private int mileage;
     private Instant created;
 
-    public CarDTO(String vin, String make, String model, int milage) {
+    public CarDTO(String vin, String make, String model, int mileage, Instant created) {
         this.vin = vin;
         this.make = make;
         this.model = model;
-        this.milage = milage;
-        this.created = Instant.now();
+        this.mileage = mileage;
+        this.created = created;
     }
 
     public String getVin() {
@@ -42,12 +42,12 @@ public class CarDTO {
         this.model = model;
     }
 
-    public int getMilage() {
-        return milage;
+    public int getMileage() {
+        return mileage;
     }
 
-    public void setMilage(int milage) {
-        this.milage = milage;
+    public void setMileage(int mileage) {
+        this.mileage = mileage;
     }
 
     public Instant getCreated() {

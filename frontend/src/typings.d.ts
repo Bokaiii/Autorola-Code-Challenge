@@ -4,6 +4,6 @@ export interface CarDTO {
     vin: string;
     make: string;
     model: string;
-    milage: number;
+    mileage: number;
     created: Date;
 }

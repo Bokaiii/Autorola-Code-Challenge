@@ -26,6 +26,7 @@ export class CarOverviewComponent implements OnInit {
   ngOnInit(): void {
     this.carService.get().subscribe(cars => {
       this.carList = cars;
+      console.log(cars);
     });
   }
   
@@ -34,6 +35,7 @@ export class CarOverviewComponent implements OnInit {
       (result: CarDTO) => {
         this.carService.createCar(result).subscribe(carDto => {
           this.carList?.push(carDto);
+          console.log(carDto);
         });
       },
       (reason) => {

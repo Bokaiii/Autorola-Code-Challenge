@@ -24,7 +24,7 @@ export class NewCarModalComponent implements OnInit {
     this.form = this.fb.group({
       make: this.fb.control(this.car?.make ? this.car?.make : "", {validators: [Validators.required]}),
       model: this.fb.control(this.car?.model ? this.car?.model : "", {validators: [Validators.required]}),
-      milage: this.fb.control(this.car?.milage ? this.car?.milage : "", {validators: [Validators.required]}),
+      milage: this.fb.control(this.car?.mileage ? this.car?.mileage : "", {validators: [Validators.required]}),
       vin: this.fb.control(this.car?.vin ? this.car?.vin : "", {validators: [Validators.required]})
     });
   }
@@ -34,7 +34,7 @@ export class NewCarModalComponent implements OnInit {
       vin: this.vin.value,
       make: this.make.value,
       model: this.model.value,
-      milage: this.milage.value,
+      mileage: this.milage.value,
       created: new Date()
     }
 
